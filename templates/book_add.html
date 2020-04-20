@@ -8,23 +8,34 @@
 <h3>添加书籍</h3>
 <form action="" method="post">
     {% csrf_token %}
-    书名:<input type="text" name="title" id=""><br>
-    价格:<input type="text" name="price" id=""><br>
-    日期:<input type="date" name="date" id=""><br>
-    出版社:
-    <select name="publish" id="">
-        {% for publish in publishs %}
-            <option value="{{ publish.pk }}">{{ publish.name }}</option>
-        {% endfor %}
-    </select>
-    <br>
-    作者:
-    <select name="authors" id="" multiple>
-        {% for author in authors %}
-            <option value="{{ author.pk }}">{{ author.name }}</option>
-        {% endfor %}
-    </select>
-    <br>
+    {% for field in form %}
+        <div>
+            {{ field.label }}
+            {{ field }}
+        </div>
+    {% endfor %}
+    
+{#    <div>#}
+{#        {{ form.title.label }}#}
+{#        {{ form.title }}#}
+{#    </div>#}
+{#    <div>#}
+{#        {{ form.price.label }}#}
+{#        {{ form.price }}#}
+{#    </div>#}
+{#    <div>#}
+{#        {{ form.date.label }}#}
+{#        {{ form.date }}#}
+{#    </div>#}
+{#    <div>#}
+{#        {{ form.publish.label }}#}
+{#        {{ form.publish }}#}
+{#    </div>#}
+{#    <div>#}
+{#        {{ form.authors.label }}#}
+{#        {{ form.authors }}#}
+{#    </div>#}
+
     <input type="submit" value="post">
 </form>
 </body>

@@ -6,37 +6,6 @@
 </head>
 <body>
 <h3>添加书籍</h3>
-<form action="" method="post">
-    {% csrf_token %}
-    {% for field in form %}
-        <div>
-            {{ field.label }}
-            {{ field }}
-        </div>
-    {% endfor %}
-    
-{#    <div>#}
-{#        {{ form.title.label }}#}
-{#        {{ form.title }}#}
-{#    </div>#}
-{#    <div>#}
-{#        {{ form.price.label }}#}
-{#        {{ form.price }}#}
-{#    </div>#}
-{#    <div>#}
-{#        {{ form.date.label }}#}
-{#        {{ form.date }}#}
-{#    </div>#}
-{#    <div>#}
-{#        {{ form.publish.label }}#}
-{#        {{ form.publish }}#}
-{#    </div>#}
-{#    <div>#}
-{#        {{ form.authors.label }}#}
-{#        {{ form.authors }}#}
-{#    </div>#}
-
-    <input type="submit" value="post">
-</form>
+{% include 'form.html' %}
 </body>
 </html>

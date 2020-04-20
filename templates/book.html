@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<a href="/book/add/"><button>添加书籍</button></a>
+
+<table border="1">
+    <thead>
+        <tr>
+            <th>序号</th>
+            <th>书名</th>
+            <th>价格</th>
+            <th>日期</th>
+            <th>出版社</th>
+            <th>作者</th>
+            <th>操作</th>
+        </tr>
+    </thead>
+    {% for book in list %}
+        <tr>
+            <td> {{ forloop.counter }}</td>
+            <td> {{ book.title }}</td>
+            <td> {{ book.price }}</td>
+            <td> {{ book.date|date:'Y/m/d' }}</td>
+            <td> {{ book.publish.name}}</td>
+            <td> {{ book.authors.all }}</td>
+            <td>
+                <a href="/book/edit/{{ book.pk }}/"><button>编辑</button></a>
+                <a href="/book/delete/{{ book.pk }}/"><button>删除</button></a>
+            </td>
+        </tr>
+
+    {% endfor %}
+</table>
+
+</body>
+</html>
